@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation System</title>
+    <style>
+        #clock {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            float: right;
+            margin-top: 35px;
+        }
+
+        .container {
+            background-color: rgba(172, 226, 241, 0.8);
+            border-radius: 10px;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-control:focus {
+            border-color: #2c3e50;
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background-color: #2c3e50;
+            /* Darker blue for button */
+            color: #fff;
+            /* White text */
+            text-decoration: none;
+            border: none;
+            padding: 10px 20px;
+            /* Increase button size for a more prominent look */
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            /* Adjust the font size */
+            color: #2c3e50;
+            /* Text color */
+            font-weight: bold;
+            /* Font weight */
+        }
+
+        .gap1 {
+            height: 4rem;
+            /* Adjust the value for the number of lines */
+        }
+
+        .gap2 {
+            height: 10rem;
+            /* Adjust the value for the number of lines */
+        }
+
+        /* Footer */
+        footer {
+            text-align: right;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        body {
+            background-image: url('/static/images/background.avif');
+            background-size: cover; /* Adjust this value as needed */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .input-table {
+            display: table;
+            width: 100%;
+        }
+
+        .input-row {
+            display: table-row;
+        }
+
+        .input-cell {
+            display: table-cell;
+            padding: 5px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 5px;
+            /* Adjust the spacing between label and input */
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Fertilizer Recommendation System</h2>
+    <div id="clock"></div>
+    <div class="gap1"></div>
+    <div class="container">
+        <form id="fertilizerForm" method="POST" action="{% url 'fertilizer_recommend_result' %}">
+            {% csrf_token %}
+            <div class="input-table">
+                <div class="input-row">
+                    <div class="input-cell">
+                        <label for="temperature" class="input-label">Temperature (°C)</label>
+                        <input type="text" name='a' class="form-control" id="temperature"placeholder="Enter temperature">
+                    </div>
+
+                    <div class="input-cell">
+                        <label for="humidity" class="input-label">Humidity (%)</label>
+                        <input type="text" name='b' class="form-control" id="humidity" placeholder="Enter humidity">
+                    </div>
+
+                    <div class="input-cell">
+                        <label for="humidity" class="input-label">Moisture (%)</label>
+                        <input type="text" name='c' class="form-control" id="moisture" placeholder="Enter moisture">
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-cell">
+                        <label for="N" class="input-label">N (grams)</label>
+                        <input type="text" name='d' class="form-control" id="N" placeholder="Enter N content">
+                    </div>
+                    <div class="input-cell">
+                        <label for="P" class="input-label">P (grams)</label>
+                        <input type="text" name='e' class="form-control" id="P" placeholder="Enter P content">
+                    </div>
+                    <div class="input-cell">
+                        <label for="K" class="input-label">K (grams)</label>
+                        <input type="text" name='f' class="form-control" id="K" placeholder="Enter K content">
+                    </div>
+                </div>
+                <div class="input-cell">
+                    <label for="soil_type" class="input-label">Soil Type</label>
+                    <select name="g" class="form-control" id="soil_type">
+                        <option value="" disabled selected>Select Soil Type</option>
+                        <option value="4">Sandy</option>
+                        <option value="2">Loamy</option>
+                        <option value="0">Black</option>
+                        <option value="3">Red</option>
+                        <option value="1">Clayey</option>
+                    </select>
+                </div>
+                <div class="input-cell">
+                    <label for="crop_type" class="input-label">Crop Type</label>
+                    <select name="h" class="form-control" id="crop_type">
+                        <option value="" disabled selected>Select Crop Type</option>
+                        <option value="3">Maize</option>
+                        <option value="8">Sugarcane</option>
+                        <option value="1">Cotton</option>
+                        <option value="9">Tobacco</option>
+                        <option value="6">Paddy</option>
+                        <option value="0">Barley</option>
+                        <option value="10">Wheat</option>
+                        <option value="4">Millets</option>
+                        <option value="5">Oil seeds</option>
+                        <option value="7">Pulses</option>
+                        <option value="2">Ground Nuts</option>
+                    </select>
+                </div>
+                
+                    
+                </div>
+            
+            <center>
+                <div class="flex-container">
+                    <button class="btn btn-primary" type="button" onclick="validateForm()">Submit</button>
+                    <a href="/" class="btn btn-primary" type="back">Back</a>
+                </div>
+            </center>
+        </div>
+        </form>
+    </div>
+    <div class="gap2"></div>
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2023. All rights reserved.(Designed & Maintained by Saugata Panja)</p>
+            <p>Terms of Service | Privacy Policy | Cookie Policy</p>
+        </div>
+    </footer>
+    <script>
+        function validateForm() {
+            var inputs = document.forms["fertilizerForm"].getElementsByTagName("input");
+            var isValid = true;
+
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].value === "") {
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                alert("Please fill in all fields.");
+            } else {
+                document.getElementById("fertilizerForm").submit();
+            }
+        }
+
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var amOrPm = hours < 12 ? 'AM' : 'PM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            var timeString = hours + ':' + minutes + ':' + seconds + ' ' + amOrPm;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease Detection</title>
+    <style>
+        #clock {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            float: right;
+            margin-top: 35px;
+        }
+        body {
+
+            background-image: url('/static/images/crop_disease_background.png');
+            background-size: cover; /* Adjust this value as needed */
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7d7f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="file"] {
+            display: block;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Optional: Style for the file input button */
+        .form-group input[type="file"]::-webkit-file-upload-button {
+            background: #881ff9;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group input[type="file"]::-webkit-file-upload-button:hover {
+            background: #e175fc;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #881ff9;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e175fc;
+        }
+
+        .btn-primary {
+            background-color: #881ff9;
+            /* Darker blue for button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #e175fc;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        h1{
+            color: #fff;
+            background-color: #264296;
+            font-weight: bold;
+            display: inline-block;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+
+        .gap1 {
+            height: 6rem;
+            /* Adjust the value for the number of lines */
+        }
+
+        .gap2 {
+            height: 8rem;
+            /* Adjust the value for the number of lines */
+        }
+
+        /* Footer */
+        footer {
+            text-align: right;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <center><h1>Crop Disease Detection</h1></center>
+    <div id="clock"></div>
+    <div class="gap1"></div>
+    <center>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" action="{% url 'crop_disease_result' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="fname">Upload Image File Here:</label>
+                <input name="filePath" type="file">
+            </div>
+            <div class="flex-container">
+                <input type="submit" value="Submit">
+                <a href="/" class="btn btn-primary" type="back">Back</a>
+            </div>
+
+        </form>
+        <h2>The classification of the image is {{predictedLabel}}</h2>
+        <img src="{{filePathName}}" alt="Uploaded Image">
+    </div>
+</center>
+    <div class="gap2"></div>
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2023. All rights reserved.(Designed & Maintained by Saugata Panja)</p>
+            <p>Terms of Service | Privacy Policy | Cookie Policy</p>
+        </div>
+    </footer>
+    <script>
+        
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var amOrPm = hours < 12 ? 'AM' : 'PM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            var timeString = hours + ':' + minutes + ':' + seconds + ' ' + amOrPm;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+        
+    </script>
+</body>
+
+</html>

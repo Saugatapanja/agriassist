@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-image: url('/static/images/background.png');
+            background-size: cover; /* Adjust this value as needed */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #clock {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            float: right;
+            margin-top: 35px;
+        }
+
+        .container {
+            background-color: rgba(155, 215, 167, 0.8);
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .btn-primary {
+            background-color: #105709;
+            /* Darker blue for button */
+            color: #fff;
+            /* White text */
+            text-decoration: none;
+            border: none;
+            padding: 10px 20px;
+            /* Increase button size for a more prominent look */
+        }
+
+        .btn-primary:hover {
+            background-color: #3fa115;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #e6eff0;
+            background-color: #264296;
+            font-weight: bold;
+            display: inline-block;
+            /* Adjusts background size to fit text */
+        }
+
+        .gap1 {
+            height: 4rem;
+            /* Adjust the value for the number of lines */
+        }
+        .gap2 {
+            height: 4rem;
+            /* Adjust the value for the number of lines */
+        }
+
+        /* Footer */
+        footer {
+            text-align: right;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <center><h2>Crop Recommendation System</h2></center>
+    <div id="clock"></div>
+    <div class="gap1"></div>
+    <div class="container">
+
+        <body bgcolor=#fcf4dd>
+            <center>
+                {%if data == 'apple'%}
+                <div>
+                    <img src='/static/images/apple.jpg' width="300" height="200">
+                    <h3>Apple</h3>
+                </div>
+
+                {%elif data == 'banana'%}
+                <div>
+                    <img src='/static/images/banana.jpg' width="300" height="200">
+                    <h3>Banana</h3>
+                </div>
+
+                {%elif data == 'blackgram'%}
+                <div>
+                    <img src='/static/images/blackgram.jpg' width="300" height="200">
+                    <h3>Blackgram</h3>
+                </div>
+
+                {%elif data == 'chickpea'%}
+                <div>
+                    <img src='/static/images/chickpea.webp' width="300" height="200">
+                    <h3>Chickpea</h3>
+                </div>
+
+                {%elif data == 'coconut'%}
+                <div>
+                    <img src='/static/images/coconut.webp' width="300" height="200">
+                    <h3>Coconut</h3>
+                </div>
+
+                {%elif data == 'coffee'%}
+                <div>
+                    <img src='/static/images/coffee.jpg' width="300" height="200">
+                    <h3>Coffee</h3>
+                </div>
+
+                {%elif data == 'cotton'%}
+                <div>
+                    <img src='/static/images/cotton.jpg' width="300" height="200">
+                    <h3>Cotton</h3>
+                </div>
+
+                {%elif data == 'grapes'%}
+                <div>
+                    <img src='/static/images/grapes.jpg' width="300" height="200">
+                    <h3>Grapes</h3>
+                </div>
+
+                {%elif data == 'jute'%}
+                <div>
+                    <img src='/static/images/jute.jpg' width="300" height="200">
+                    <h3>Jute</h3>
+                </div>
+
+                {%elif data == 'kidneybeans'%}
+                <div>
+                    <img src='/static/images/kidneybeans.jpg' width="300" height="200">
+                    <h3>Kidneybeans</h3>
+                </div>
+
+                {%elif data == 'lentil'%}
+                <div>
+                    <img src='/static/images/lentil.webp' width="300" height="200">
+                    <h3>Lentil</h3>
+                </div>
+
+                {%elif data == 'maize'%}
+                <div>
+                    <img src='/static/images/maize.jpg' width="300" height="200">
+                    <h3>Maize</h3>
+                </div>
+
+                {%elif data == 'mango'%}
+                <div>
+                    <img src='/static/images/mango.jpg' width="300" height="200">
+                    <h3>Mango</h3>
+                </div>
+
+                {%elif data == 'mothbeans'%}
+                <div>
+                    <img src='/static/images/mothbeans.avif' width="300" height="200">
+                    <h3>Mothbeans</h3>
+                </div>
+
+                {%elif data == 'mungbean'%}
+                <div>
+                    <img src='/static/images/mungbean.webp' width="300" height="200">
+                    <h3>Mungbean</h3>
+                </div>
+
+                {%elif data == 'muskmelon'%}
+                <div>
+                    <img src='/static/images/muskmelon.jpg' width="300" height="200">
+                    <h3>Muskmelon</h3>
+                </div>
+
+                {%elif data == 'orange'%}
+                <div>
+                    <img src='/static/images/orange.avif' width="300" height="200">
+                    <h3>Orange</h3>
+                </div>
+
+                {%elif data == 'papaya'%}
+                <div>
+                    <img src='/static/images/papaya.webp' width="300" height="200">
+                    <h3>Papaya</h3>
+                </div>
+
+                {%elif data == 'pigeonpeas'%}
+                <div>
+                    <img src='/static/images/pigeonpeas.jpg' width="300" height="200">
+                    <h3>Pigeonpeas</h3>
+                </div>
+
+                {%elif data == 'pomegranate'%}
+                <div>
+                    <img src='/static/images/pomegranate.jpg' width="300" height="200">
+                    <h3>Pomegranate</h3>
+                </div>
+
+                {%elif data == 'rice'%}
+                <div>
+                    <img src='/static/images/rice.webp' width="300" height="200">
+                    <h3>Rice Plant</h3>
+                </div>
+
+                {%elif data == 'watermelon'%}
+                <div>
+                    <img src='/static/images/watermelon.jpg' width="300" height="200">
+                    <h3>Watermelon</h3>
+                </div>
+
+                {%endif%}
+                <br>
+                <a href='/crop_recommend' class="btn btn-primary" type="back">BACK</a>
+            </center>
+        </body>
+    </div>
+    <!-- Copyright -->
+    <div class="gap2"></div>
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2023. All rights reserved.(Designed & Maintained by Saugata Panja)</p>
+            <p>Terms of Service | Privacy Policy | Cookie Policy</p>
+        </div>
+    </footer>
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var amOrPm = hours < 12 ? 'AM' : 'PM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            var timeString = hours + ':' + minutes + ':' + seconds + ' ' + amOrPm;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+
+</html>

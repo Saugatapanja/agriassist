@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriAid: Empowering Farmers with Intelligent Solutions</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <style>
+        /* Navbar styles */
+        .navbar {
+            background-color: #284a07;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.25rem;
+            color: #fbfcfe;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-right: 1rem;
+        }
+
+        .nav-link {
+            color: #f4f6f8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #2546ec;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        @media (max-width: 576px) {
+            .nav-item {
+                margin-right: 0.5rem;
+            }
+        }
+
+        .about-section {
+            background-color: #b5cba9;
+            padding: 40px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .about-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .about-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .faq-items {
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #4c7c18;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a heref="/" class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="mailto:your@email.com">Email</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/yourpage">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/yourprofile">Instagram</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/yourhandle">Twitter</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <img src="\static\images\logo.jpeg" alt="AgriAssist Logo"
+            style="border-radius: 50%; width: 100px; height: 100px; float: left; margin-right: 10px;">
+        <h1>AgriAssist: Empowering Farmers with Intelligent Solutions</h1>
+        <p>Enhancing crop yield, minimizing losses, and optimizing fertilizer usage.</p>
+    </header>
+    <main>
+        <div id="clock"></div>
+        <section class="hero">
+            <div id="slideshow-container">
+                <div class="slide fade">
+                    <img src="\static\images\1.jpg" alt="Slide 1">
+                </div>
+
+                <div class="slide fade">
+                    <img src="\static\images\2.jpg" alt="Slide 2">
+                </div>
+
+                <div class="slide fade">
+                    <img src="\static\images\3.jpg" alt="Slide 3">
+                </div>
+                <div class="slide fade">
+                    <img src="\static\images\4.jpg" alt="Slide 4">
+                </div>
+
+                <button id="prev" onclick="plusSlides(-1)">Prev</button>
+                <button id="next" onclick="plusSlides(1)">Next</button>
+            </div>
+            <div class="hero-content">
+                <h3>Boost Your Farm Productivity</h3>
+                <p>
+                    AgriAssist is an innovative web platform designed to assist farmers in making informed decisions
+                    about
+                    their crops. With advanced algorithms and extensive agricultural data analysis,
+                    AgriAid offers three
+                    essential features:
+                <ul>
+                    <li>crop recommendation</li>
+                    <li>disease prediction</li>
+                    <li>fertilizer recommendation</li>
+                </ul>
+                <span id="dots">...</span>
+                <span id="more">
+                    This
+                    comprehensive tool aims to enhance crop yield, minimize losses due to diseases, and optimize
+                    fertilizer usage, thereby maximizing agricultural productivity and profitability
+                </span>
+                </p>
+                <button onclick="myFunction()" id="myBtn">Read more</button>
+            </div>
+        </section>
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <a href="{% url 'crop_recommend' %}">
+                    <h3>Crop Recommendation</h3>
+                </a>
+                <p>Get personalized crop recommendations based on soil type, climate, and historical data.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <a href="{% url 'crop_disease' %}">
+                    <h3>Disease Prediction</h3>
+                </a>
+                <p>Predict and prevent crop diseases using machine learning algorithms.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <a href="{% url 'fertilizer_recommend' %}">
+                    <h3>Fertilizer Recommendation</h3>
+                </a>
+                <p>Optimize fertilizer usage for increased yield and reduced environmental impact.</p>
+            </div>
+        </section>
+        <section>
+            <div class="about-section">
+                <div class="about-title">About Us</div>
+                <div class="about-description">
+                    <p><strong>AgriAid: Empowering Farmers with Intelligent Solutions</strong></p>
+                    <p>AgriAid is a cutting-edge web platform meticulously crafted to empower farmers in making informed
+                        decisions about their crops. Our platform harnesses the power of advanced algorithms and
+                        extensive
+                        agricultural data analysis to provide assistance to farmers🚜.</p>
+                </div>
+        </section>
+        <section id="faq">
+            <br><br>
+            <div class="faq-items">
+                <center>
+                    <h2>Frequently Asked Questions (FAQ)</h2>
+                </center>
+                <div class="faq-item">
+                    <h3>How do I use the crop recommendation feature?</h3>
+                    <p>To use the crop recommendation feature, navigate to the "Crop Recommendation" section and select
+                        your region and soil type. Then click on "Get Recommendations" to view the suggested crops for
+                        your area.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How accurate are the disease predictions?</h3>
+                    <p>Our disease prediction system utilizes advanced machine learning algorithms trained on extensive
+                        datasets. While we strive for accuracy, please note that predictions may vary depending on
+                        various factors such as image quality and disease severity.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I request a new feature?</h3>
+                    <p>Absolutely! We welcome any feedback and feature requests from our users. Feel free to send us
+                        your suggestions via email or through our community forum.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I interpret fertilizer recommendations?</h3>
+                    <p>Our fertilizer recommendation system considers factors such as soil nutrient levels, crop type,
+                        and growth stage to suggest optimal fertilizer types and application rates. We provide detailed
+                        explanations along with recommendations to help you understand and apply them effectively.</p>
+                </div>
+                <!-- Add more FAQ items as needed -->
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; AgriAssist 2024. All rights reserved.(Designed & Maintained by Saugata Panja)</p>
+            <p>Terms of Service | Privacy Policy | Cookie Policy</p>
+        </div>
+    </footer>
+    <script src="/static/scripts/index.js">
+        function toggleFAQ() {
+    var faqPopup = document.getElementById('faq-popup');
+    if (faqPopup.style.display === 'none') {
+        faqPopup.style.display = 'block';
+    } else {
+        faqPopup.style.display = 'none';
+    }
+}
+    </script>
+</body>
+
+</html>

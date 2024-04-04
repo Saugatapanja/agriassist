@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <style>
+        #clock {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            float: right;
+            margin-top: 35px;
+        }
+
+        .container {
+            background-color: rgba(172, 226, 241, 0.8);
+            border-radius: 10px;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background-color: #2c3e50;
+            /* Darker blue for button */
+            color: #fff;
+            /* White text */
+            text-decoration: none;
+            border: none;
+            padding: 10px 20px;
+            /* Increase button size for a more prominent look */
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #050505;
+            font-weight: bold;
+            display: inline-block;
+            /* Adjusts background size to fit text */
+        }
+
+
+        .gap1 {
+            height: 4rem;
+            /* Adjust the value for the number of lines */
+        }
+
+        .gap2 {
+            height: 4rem;
+            /* Adjust the value for the number of lines */
+        }
+
+        /* Footer */
+        footer {
+            text-align: right;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        body {
+            background-image: url('/static/images/background.avif');
+            background-size: cover; /* Adjust this value as needed */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .input-table {
+            display: table;
+            width: 100%;
+        }
+
+        .input-row {
+            display: table-row;
+        }
+
+        .input-cell {
+            display: table-cell;
+            padding: 5px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 5px;
+            /* Adjust the spacing between label and input */
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>Fertilizer Recommendation System</h2>
+    </center>
+    <div id="clock"></div>
+    <div class="gap1"></div>
+    <div class="container">
+
+        <body bgcolor=#fcf4dd>
+            <center>
+                {%if data == 0%}
+                <div>
+                    <h3>10-26-26</h3>
+                    <p> This fertilizer contains 10% nitrogen (N), 26% phosphorus (P₂O₅), and 26% potassium (K₂O). It is
+                        a high-phosphorus fertilizer, suitable for promoting root development and flowering in plants.
+                        Use it before planting or during the early stages of growth to encourage strong root systems and
+                        robust flowering.</p>
+                </div>
+
+                {%elif data == 1%}
+                <div>
+                    <h3>14-35-14</h3>
+                    <p>Similar to the 10-26-26 fertilizer, this one is also high in phosphorus (14%) but with a higher
+                        concentration of potassium (35%). It's ideal for stimulating root growth, flower formation, and
+                        overall plant vigor. Apply it before planting or during the flowering stage to support healthy
+                        blooms and fruit production.</p>
+                </div>
+
+                {%elif data == 2%}
+                <div>
+                    <h3>17-17-17</h3>
+                    <p>This fertilizer contains equal parts of nitrogen, phosphorus, and potassium, each at 17%. It
+                        provides a balanced nutrient ratio suitable for promoting overall plant growth and development.
+                        Use it during the early stages of growth or throughout the growing season to ensure plants
+                        receive essential nutrients for healthy foliage, root development, and fruit production.</p>
+                </div>
+
+                {%elif data == 3%}
+                <div>
+                    <h3>20-20</h3>
+                    <p>Similar to 17-17-17, this fertilizer has a balanced nutrient ratio with 20% nitrogen and 20%
+                        phosphorus. It's suitable for general-purpose applications across various stages of plant
+                        growth. Use it when you need a balanced nutrient supply to support overall plant health and
+                        productivity.</p>
+                </div>
+
+                {%elif data == 4%}
+                <div>
+                    <h3>28-28</h3>
+                    <p> This fertilizer is high in nitrogen (28%) and phosphorus (28%). It provides a significant boost
+                        of both nutrients, making it suitable for promoting rapid vegetative growth and early plant
+                        establishment. Use it during the vegetative stage or when plants need a strong growth stimulus.
+                    </p>
+                </div>
+
+                {%elif data == 5%}
+                <div>
+                    <h3>DAP</h3>
+                    <p>DAP is a granular fertilizer containing nitrogen (18%) and phosphorus (46%). It's a quick-release
+                        fertilizer suitable for providing an immediate nutrient supply to plants. Use DAP during
+                        planting or early growth stages to support root development and early plant vigor.</p>
+                </div>
+
+                {%elif data == 6%}
+                <div>
+                    <h3>Urea</h3>
+                    <p>Urea is a nitrogen-rich fertilizer containing approximately 46% nitrogen. It's a soluble
+                        fertilizer that provides a readily available nitrogen source for plants. Use urea during the
+                        growing season to boost nitrogen levels in the soil and promote lush foliage growth. Ensure
+                        proper application to prevent nitrogen loss through leaching or volatilization.</p>
+                </div>
+                {%endif%}
+                <br>
+                <a href='/fertilizer_recommend' class="btn btn-primary" type="back">BACK</a>
+            </center>
+        </body>
+    </div>
+    <!-- Copyright -->
+    <div class="gap2"></div>
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2023. All rights reserved.(Designed & Maintained by Saugata Panja)</p>
+            <p>Terms of Service | Privacy Policy | Cookie Policy</p>
+        </div>
+    </footer>
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var amOrPm = hours < 12 ? 'AM' : 'PM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            var timeString = hours + ':' + minutes + ':' + seconds + ' ' + amOrPm;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+
+</html>
