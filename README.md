@@ -1,4 +1,4 @@
-AgriAssist
+# AgriAssist
 AgriAssist is an innovative web platform designed to assist farmers in making informed decisions about their crops. With advanced algorithms and extensive agricultural data analysis, AgriAid offers three essential features:
 
 Crop Recommendation
